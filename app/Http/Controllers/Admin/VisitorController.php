@@ -13,7 +13,7 @@ class VisitorController extends Controller
         date_default_timezone_set('Asia/Manila');
 
         $ip_address = $_SERVER['REMOTE_ADDR'];
-        $visit_time = date('h:i:s');
+        $visit_time = date('h:i:sa');
         $visit_date = date('d-m-Y');
 
         $result = Visitor::insert([
