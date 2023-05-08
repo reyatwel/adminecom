@@ -24,16 +24,43 @@ use App\Http\Controllers\Admin\ProductListController;
 // });
 
 // Get visitor data
-Route::get('/getvisitor', [VisitorController::class, 'GetVisitorDetails']);
+Route::get(
+    '/getvisitor',
+    [VisitorController::class, 'GetVisitorDetails']
+);
 
 // Contact Page route
-Route::post('/postcontact', [ContactController::class, 'PostContactDetails']);
+Route::post(
+    '/postcontact',
+    [ContactController::class, 'PostContactDetails']
+);
 
 // Site Info route
-Route::get('/allsiteinfo', [SiteInfoController::class, 'AllSiteInfo']);
+Route::get(
+    '/allsiteinfo',
+    [SiteInfoController::class, 'AllSiteInfo']
+);
 
 // All Category route
-Route::get('/allcategory', [CategoryController::class, 'AllCategory']);
+Route::get(
+    '/allcategory',
+    [CategoryController::class, 'AllCategory']
+);
 
-// ProductList route
-Route::get('/productlistbyremarks/{remarks}', [ProductListController::class, 'ProductListByRemarks']);
+// productlistbyremarks route
+Route::get(
+    '/productlistbyremarks/{remarks}',
+    [ProductListController::class, 'ProductListByRemarks']
+);
+
+// productlistbycategory route
+Route::get(
+    '/productlistbycategory/{category}',
+    [ProductListController::class, 'ProductListByCategory']
+);
+
+// productlistbycategory route
+Route::get(
+    '/productlistbysubcategory/{category}/{subcategory}',
+    [ProductListController::class, 'ProductListBySubcategory']
+);
