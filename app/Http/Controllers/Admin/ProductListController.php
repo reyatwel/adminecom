@@ -8,11 +8,10 @@ use App\Models\ProductList;
 
 class ProductListController extends Controller
 {
-    //
     public function ProductListByRemarks(Request $request)
     {
         $remarks = $request->remarks;
-        $productList = ProductList::where('remarks', $remarks)->get();
+        $productList = ProductList::where('remarks', $remarks)->limit(8)->get();
 
         return $productList;
     }
