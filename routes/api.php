@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ProductDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +71,10 @@ Route::get(
 Route::get(
     '/allslider',
     [SliderController::class, 'AllSlider']
+);
+
+// Product Details route
+Route::get(
+    '/productdetails/{id}',
+    [ProductDetailsController::class, 'ProductDetails']
 );
