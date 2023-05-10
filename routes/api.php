@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductDetailsController;
+use App\Http\Controllers\Admin\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,4 +78,10 @@ Route::get(
 Route::get(
     '/productdetails/{id}',
     [ProductDetailsController::class, 'ProductDetails']
+);
+
+// Notification route
+Route::get(
+    '/notification',
+    [NotificationController::class, 'NotificationHistory']
 );
