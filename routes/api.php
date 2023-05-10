@@ -85,3 +85,9 @@ Route::get(
     '/notification',
     [NotificationController::class, 'NotificationHistory']
 );
+
+// Notification route
+Route::get(
+    '/search/{key}',
+    [ProductListController::class, 'ProductBySearch']
+);
