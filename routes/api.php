@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\NotificationController;
 
+use App\Http\Controllers\User\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -91,3 +93,13 @@ Route::get(
     '/search/{key}',
     [ProductListController::class, 'ProductBySearch']
 );
+
+
+//UserAuthentication--------------------------------------------------------------
+
+// Login Routes
+Route::post('/login', [AuthController::class, 'Login']);
+
+// Register Routes
+Route::post('/register', [AuthController::class, 'Register']);
+//
