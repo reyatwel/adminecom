@@ -138,6 +138,12 @@ Route::get(
     [FavouriteController::class, 'FavouriteList']
 );
 
+// Product Favourite route
+Route::get(
+    '/favouriteremove/{product_code}/{email}',
+    [FavouriteController::class, 'FavouriteRemove']
+);
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
