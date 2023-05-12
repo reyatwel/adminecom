@@ -132,6 +132,12 @@ Route::get(
     [FavouriteController::class, 'AddFavourite']
 );
 
+// Product Favourite route
+Route::get(
+    '/favouritelist/{email}',
+    [FavouriteController::class, 'FavouriteList']
+);
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
