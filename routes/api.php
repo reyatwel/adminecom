@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ProductCartController;
 
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\ForgetController;
@@ -110,6 +111,12 @@ Route::get(
 Route::get(
     '/reviewlist/{id}',
     [ReviewController::class, 'ReviewList']
+);
+
+// Product Cart route
+Route::post(
+    '/addtocart',
+    [ProductCartController::class, 'AddToCart']
 );
 
 
