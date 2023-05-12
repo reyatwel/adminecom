@@ -119,6 +119,12 @@ Route::post(
     [ProductCartController::class, 'AddToCart']
 );
 
+// Product Review route
+Route::get(
+    '/cartcount/{product_code}',
+    [ProductCartController::class, 'CartCount']
+);
+
 
 //UserAuthentication--------------------------------------------------------------
 
