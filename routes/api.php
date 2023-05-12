@@ -144,6 +144,12 @@ Route::get(
     [FavouriteController::class, 'FavouriteRemove']
 );
 
+// Cart List route
+Route::get(
+    '/cartlist/{email}',
+    [ProductCartController::class, 'CartList']
+);
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
