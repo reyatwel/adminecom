@@ -150,6 +150,12 @@ Route::get(
     [ProductCartController::class, 'CartList']
 );
 
+// Remove Cart List route
+Route::get(
+    '/removecartlist/{id}',
+    [ProductCartController::class, 'RemoveCartList']
+);
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
