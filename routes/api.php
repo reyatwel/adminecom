@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\ProductCartController;
+use App\Http\Controllers\Admin\FavouriteController;
 
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\ForgetController;
@@ -125,6 +126,11 @@ Route::get(
     [ProductCartController::class, 'CartCount']
 );
 
+// Product Favourite route
+Route::get(
+    '/favourite/{product_code}/{email}',
+    [FavouriteController::class, 'AddFavourite']
+);
 
 //UserAuthentication--------------------------------------------------------------
 
