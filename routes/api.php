@@ -97,6 +97,12 @@ Route::get(
     [ProductListController::class, 'ProductBySearch']
 );
 
+// Similar Product route
+Route::get(
+    '/similar/{subcategory}',
+    [ProductListController::class, 'SimilarProduct']
+);
+
 
 //UserAuthentication--------------------------------------------------------------
 
