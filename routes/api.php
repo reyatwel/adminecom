@@ -156,6 +156,18 @@ Route::get(
     [ProductCartController::class, 'RemoveCartList']
 );
 
+// Cart Item Plus route
+Route::get(
+    '/cartitemplus/{id}/{quantity}/{price}',
+    [ProductCartController::class, 'CartItemPlus']
+);
+
+// Cart Item Minus route
+Route::get(
+    '/cartitemminus/{id}/{quantity}/{price}',
+    [ProductCartController::class, 'CartItemMinus']
+);
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
