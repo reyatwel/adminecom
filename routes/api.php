@@ -174,6 +174,12 @@ Route::post(
     [ProductCartController::class, 'CartOrder']
 );
 
+// Cart Order route
+Route::get(
+    '/orderlistbyuser/{email}',
+    [ProductCartController::class, 'OrderListByUser']
+);
+
 
 //UserAuthentication--------------------------------------------------------------
 
