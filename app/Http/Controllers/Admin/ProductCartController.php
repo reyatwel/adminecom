@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductCart;
 use App\Models\ProductList;
+use App\Models\CartOrder;
 
 class ProductCartController extends Controller
 {
@@ -95,5 +96,59 @@ class ProductCartController extends Controller
         ]);
 
         return $result;
+    }
+
+    public function CartOrder(Request $request)
+    {
+        $city = $request->input('city');
+        $paymentMethod = $request->input('paymentMethod');
+        $yourName = $request->input('name');
+        $email = $request->input('email');
+        $deliveryAddress = $request->input('delivery_address');
+        $invoiceNo = $request->input('invoice_no');
+        $deliveryCharge = $request->input('delivery_charge');
+
+        date_default_timezone_set('Asia/Manila');
+
+        $request_time = date('h:i:sa');
+        $request_date = date('d-m-Y');
+
+        $cartList = ProductCart::where('email', $email)->get();
+
+        foreach ($cartList as $order) {
+            $cartInsertDeleteResult = "";
+
+            $result = CartOrder::insert([
+                'invoice_no' => 'PVBI' . $invoiceNo,
+                'product_name' => $order['product_name'],
+                'product_code' => $order['product_code'],
+                'size' => $order['size'],
+                'color' => $order['color'],
+                'quantity' => $order['quantity'],
+                'unit_price' => $order['unit_price'],
+                'total_price' => $order['total_price'],
+                'email' => $order['email'],
+                'name' => $yourName,
+                'payment_method' => $paymentMethod,
+                'delivery_address' => $deliveryAddress,
+                'city' => $city,
+                'delivery_charge' => $deliveryCharge,
+                'order_date' => $request_date,
+                'order_time' => $request_time,
+                'order_status' => 'Pending'
+            ]);
+
+            if ($result === 1) {
+                $delete = ProductCart::where('id', $order['id'])->delete();
+
+                if ($delete === 1) {
+                    $cartInsertDeleteResult = 1;
+                } else {
+                    $cartInsertDeleteResult = 0;
+                }
+            }
+        }
+
+        return $cartInsertDeleteResult;
     } //
 }

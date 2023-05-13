@@ -168,6 +168,13 @@ Route::get(
     [ProductCartController::class, 'CartItemMinus']
 );
 
+// Cart Order route
+Route::post(
+    '/cartorder',
+    [ProductCartController::class, 'CartOrder']
+);
+
+
 //UserAuthentication--------------------------------------------------------------
 
 // Login Routes
