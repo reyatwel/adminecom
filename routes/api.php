@@ -174,10 +174,16 @@ Route::post(
     [ProductCartController::class, 'CartOrder']
 );
 
-// Cart Order route
+// Order List route
 Route::get(
     '/orderlistbyuser/{email}',
     [ProductCartController::class, 'OrderListByUser']
+);
+
+// Post Product Review route
+Route::post(
+    '/postreview',
+    [ReviewController::class, 'PostReview']
 );
 
 
